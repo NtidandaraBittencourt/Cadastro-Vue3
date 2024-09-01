@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils'
 import BaseForm from '@/components/SharedComponents/BaseForm.vue'
 import BaseInput from '@/components/SharedComponents/BaseInput.vue'
 import { createStore } from 'vuex'
-import { useStore } from '@/stores/storeName'
+import { useStore } from '@/stores/storeRegistrations'
 import { reactive } from 'vue'
 
 const store = createStore({

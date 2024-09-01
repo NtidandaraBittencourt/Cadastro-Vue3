@@ -3,12 +3,17 @@ services:
     build: ./backend
     ports:
       - "3000:3000"
+    environment:
+      - NODE_ENV=production
 
   frontend:
-    build: ./FRONTEND/vue-project
+    build: ./frontend/registrations-vue3
     ports:
-      - "5173:5173"
-    volumes:
-      - ./FRONTEND/vue-project:/app
+      - "8080:8080"
     depends_on:
       - backend
+    volumes:
+      - ./frontend/registrations-vue3:/app
+    environment:
+      - NODE_ENV=production
+    command: npm run dev

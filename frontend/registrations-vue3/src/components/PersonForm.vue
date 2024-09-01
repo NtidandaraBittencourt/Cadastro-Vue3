@@ -14,7 +14,7 @@ import FormDynamic from '@/components/SharedComponents/FormDynamic.vue'
 import { validationSchema } from '@/utils/validationSchema'
 import { useRouter } from 'vue-router'
 import { reactive, computed } from 'vue'
-import { useStore } from '@/stores/storeName'
+import { useStore } from '@/stores/storeRegistrations'
 
 const router = useRouter()
 const store = useStore()

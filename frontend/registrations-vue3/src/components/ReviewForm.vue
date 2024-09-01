@@ -14,7 +14,7 @@ import FormDynamic from '@/components/SharedComponents/FormDynamic.vue'
 import { validationSchema } from '@/utils/validationSchema'
 import { useRouter } from 'vue-router'
 import { reactive } from 'vue'
-import { useStore } from '@/stores/storeName'
+import { useStore } from '@/stores/storeRegistrations'
 
 const router = useRouter()
 const form = useStore()
@@ -22,11 +22,11 @@ const form = useStore()
 const fields = ['email', 'name', 'cpfOrCnpj', 'dataInit', 'phone', 'password']
 
 function handleSubmit() {
-  console.log('finalizou')
+
   const submitForm = async () => {
     try {
       const response = await form.submitRegistration()
-      alert(response.message)
+      alert(response.message, 'salvou')
     } catch (error) {
       alert('Erro ao enviar o formulário: ' + error.response.data.error)
     }

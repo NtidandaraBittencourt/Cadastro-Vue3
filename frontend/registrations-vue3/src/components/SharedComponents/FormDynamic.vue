@@ -28,7 +28,7 @@
 import { computed, reactive } from 'vue'
 import BaseInput from '@/components/SharedComponents/BaseInput.vue'
 import BaseForm from '@/components/SharedComponents/BaseForm.vue'
-import { useStore } from '@/stores/storeName'
+import { useStore } from '@/stores/storeRegistrations'
 import { useRouter } from 'vue-router'
 
 const store = useStore()

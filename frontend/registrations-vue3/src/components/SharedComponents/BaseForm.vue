@@ -15,7 +15,7 @@
 
 <script setup>
 import { reactive, computed } from 'vue'
-import { useStore } from '@/stores/storeName'
+import { useStore } from '@/stores/storeRegistrations'
 import BaseTitle from './BaseTitle.vue'
 import BaseButton from './BaseButton.vue'
 
