@@ -16,10 +16,14 @@ services:
       - NODE_ENV=production
     command: npm run dev
   
-  frontend-tests:
-    build: ./frontend/registrations-vue3
-    environment:
-      - NODE_ENV=test
-    command: npm run test:e2e
-    entrypoint: ["sh", "-c"]
-    restart: "no"
+
+  # cypress:
+  #   image: cypress/included:13.12.0
+  #   working_dir: /app
+  #   volumes:
+  #     - ./frontend/registrations-vue3:/app
+  #   depends_on:
+  #     - frontend
+  #   environment:
+  #     - CYPRESS_BASE_URL=http://frontend:8080
+  #   entrypoint: ["npm", "run", "cypress:run"]

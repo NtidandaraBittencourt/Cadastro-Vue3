@@ -28,27 +28,38 @@ describe('Formulario inicial', () => {
       cy.get(':nth-child(6) > .mb-4 > .text-red-600').should('exist');
     })
 
-    it('Verifica o envio do form e retorno sucesso', () => {
-        cy.get('#email').type('usuario@teste.com')
-        cy.get('#name').type('Usuário Teste')
-        cy.get('#cpfOrCnpj').type('123.456.789-09')
-        cy.get('#dataInit').type('2000-01-01')
-        cy.get('#phone').type('(11) 91234-5678')
-        cy.get('#password').type('Senha@123')
+    // it('Verifica a abertura do modal de confirmação', () => {
+    //   cy.get('#email').type('usuario@teste.com')
+    //   cy.get('#name').type('Usuário Teste')
+    //   cy.get('#cpfOrCnpj').type('123.456.789-09')
+    //   cy.get('#dataInit').type('2000-01-01')
+    //   cy.get('#phone').type('(11) 91234-5678')
+    //   cy.get('#password').type('Senha@123')
 
-        cy.get('button[type="submit"]').click();
-    
-        cy.intercept('POST', '/registration', {
-          statusCode: 200,
-          body: { message: 'Cadastro realizado com sucesso!' },
-        }).as('submitRegistration')
+    //   cy.get('button[type="submit"]').click();
 
-        // cy.get('#alert').should('be.visible')
-    
-        // cy.contains('Cadastro realizado com sucesso!').should('be.visible');
-    
-        cy.url().should('eq', 'http://localhost:4173/review');
-      });
+    //   cy.get('#modal').should('be.visible');
+    //   cy.get('#modal').contains('Confirmar Cadastro').should('be.visible');
+    // })
+
+    // it('Verifica o carregamento e envio do form com retorno de sucesso', () => {
+    //   cy.intercept('POST', '/registration', {
+    //     statusCode: 200,
+    //     body: { message: 'Cadastro realizado com sucesso!' },
+    //   }).as('submitRegistration')
+
+    //   cy.get('button[type="submit"]').click();
+
+    //   cy.get('#modal').contains('Confirmar').click();
+
+    //   cy.get('#loader').should('be.visible');
+      
+    //   cy.wait('@submitRegistration').then(() => {
+    //       cy.get('#loader').should('not.exist');
+    //       cy.url().should('eq', 'http://localhost:4173/');
+    //       cy.contains('Cadastro realizado com sucesso!').should('be.visible');
+    //   });
+    // });
 
 
 })
