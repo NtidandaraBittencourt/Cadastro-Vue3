@@ -12,8 +12,14 @@ services:
       - "8080:8080"
     depends_on:
       - backend
-    volumes:
-      - ./frontend/registrations-vue3:/app
     environment:
       - NODE_ENV=production
     command: npm run dev
+  
+  frontend-tests:
+    build: ./frontend/registrations-vue3
+    environment:
+      - NODE_ENV=test
+    command: npm run test:e2e
+    entrypoint: ["sh", "-c"]
+    restart: "no"
