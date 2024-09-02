@@ -16,6 +16,11 @@ export const useStore = defineStore('storeRegistrations', {
   }),
   actions: {
     setInputValue(id, value) {
+      if (typeof id === 'object') {
+        Object.keys(id).forEach(key => {
+          this.inputValues[key] = id[key];
+        });
+      } 
       this.inputValues[id] = value
     },
     initializeFields(fields) {
@@ -31,7 +36,7 @@ export const useStore = defineStore('storeRegistrations', {
         return response.data
       } catch (error) {
         console.error('Erro ao enviar o registro:', error);
-        throw error;
+        throw error
       }
     }
   }

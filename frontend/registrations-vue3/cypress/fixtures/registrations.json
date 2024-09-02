@@ -1,0 +1,10 @@
+{
+    "name": "Using fixtures to represent data",
+    "email": "hello@cypress.io",
+    "cpfOrCnpj": "010.022.900-89",
+    "personType": "person",
+    "dataInit": "06/10/2024",
+    "phone": "(49) 98745-6321", 
+    "password": "123456"
+  }
+  

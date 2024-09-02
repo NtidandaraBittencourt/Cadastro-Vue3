@@ -29,7 +29,7 @@ const buttonClasses = computed(() => {
   const variantClasses = {
     primary: 'bg-orange-500 hover:bg-orange-600',
     secondary:
-      'bg-transparent text-pink-500 border border-orange-500 hover:bg-orange-500 hover:text-white'
+      'bg-transparent text-orange-500 border border-orange-500 hover:bg-orange-500 hover:text-white'
   }
 
   return `${baseClasses} ${variantClasses[props.variant]} ${props.class}`

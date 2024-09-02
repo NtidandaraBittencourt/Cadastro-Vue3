@@ -1,7 +1,7 @@
 <template>
   <DynamicForm
     title="Seja bem vindo(a)"
-    :fields="['email', 'personType']"
+    :fields="fields"
     :validationSchema="validationSchema"
     @submit="handleSubmit"
     @validationFailed="handleValidationFailed"
@@ -10,20 +10,22 @@
 </template>
 
 <script setup>
-import DynamicForm from '@/components/SharedComponents/FormDynamic.vue'
-import { validationSchema } from '@/utils/validationSchema'
-import { useRouter } from 'vue-router'
-import { reactive } from 'vue'
+import DynamicForm from "@/components/SharedComponents/FormDynamic.vue";
+import { validationSchema } from "@/utils/validationSchema";
+import { useRouter } from "vue-router";
+import { reactive } from "vue";
 
-const router = useRouter()
+const router = useRouter();
+
+const fields = ["email", "personType"];
 
 function handleSubmit() {
-  router.push({ name: 'person' })
+  router.push({ name: "person" });
 }
 
-const errors = reactive({})
+const errors = reactive({});
 
 function handleValidationFailed(validationErrors) {
-  Object.assign(errors, validationErrors)
+  Object.assign(errors, validationErrors);
 }
 </script>

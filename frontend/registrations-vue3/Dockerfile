@@ -11,6 +11,8 @@ RUN npm install
 
 COPY . .
 
+RUN npm run test:e2e
+
 RUN npm run build && ls -la /app/dist
 
 EXPOSE 8080

@@ -18,8 +18,8 @@ const router = createRouter({
       component: PersonForm
     },
     {
-      path: '/config-passoword',
-      name: 'config-passoword',
+      path: '/config-password',
+      name: 'config-password',
       component: PasswordForm
     },
     {

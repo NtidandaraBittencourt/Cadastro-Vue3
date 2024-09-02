@@ -55,9 +55,16 @@ const isSubmitDisabled = computed(() => {
 async function validateField(field, value) {
   try {
     if (props.validationSchema[field]) {
-      await props.validationSchema[field].validate(value)
+      if (field === 'cpfOrCnpj') {
+        const personType = store.inputValues.personType
+        await props.validationSchema[field].validate(value, {
+          context: { personType }
+        })
+      } else {
+        await props.validationSchema[field].validate(value)
+      }
       errors[field] = ''
-    }
+    } 
   } catch (err) {
     errors[field] = err.message
   }

@@ -10,36 +10,36 @@
 </template>
 
 <script setup>
-import FormDynamic from '@/components/SharedComponents/FormDynamic.vue'
-import { validationSchema } from '@/utils/validationSchema'
-import { useRouter } from 'vue-router'
-import { reactive, computed } from 'vue'
-import { useStore } from '@/stores/storeRegistrations'
+import FormDynamic from "@/components/SharedComponents/FormDynamic.vue";
+import { validationSchema } from "@/utils/validationSchema";
+import { useRouter } from "vue-router";
+import { reactive, computed } from "vue";
+import { useStore } from "@/stores/storeRegistrations";
 
-const router = useRouter()
-const store = useStore()
+const router = useRouter();
+const store = useStore();
 
-const fields = ['name', 'cpfOrCnpj', 'dataInit', 'phone']
+const fields = ["name", "cpfOrCnpj", "dataInit", "phone"];
 
 const isPersonCompany = computed(() => {
-  return store.inputValues.personType === 'company'
-})
+  return store.inputValues.personType === "company";
+});
 
 const getTitle = computed(() => {
-  return isPersonCompany.value ? 'Pessoa Jurídica' : 'Pessoa Física'
-})
+  return isPersonCompany.value ? "Pessoa Jurídica" : "Pessoa Física";
+});
 
 function handleSubmit() {
-  router.push({ name: 'config-passoword' })
+  router.push({ name: "config-password" });
 }
 
 function handlePreviousStep() {
-  router.push({ name: 'home' })
+  router.push({ name: "home" });
 }
 
-const errors = reactive({})
+const errors = reactive({});
 
 function handleValidationFailed(validationErrors) {
-  Object.assign(errors, validationErrors)
+  Object.assign(errors, validationErrors);
 }
 </script>
