@@ -91,10 +91,12 @@ function updateValue(value) {
 }
 
 function clearOtherFields() {
-  const fieldsToClear = ["name", "cpfOrCnpj", "dataInit", "phone"];
-  fieldsToClear.forEach((field) => {
-    store.setInputValue({ [field]: "" });
-  });
+  const fieldsToClear = ["name", "cpfOrCnpj", "dataInit", "phone", "password"];
+  const clearValues = fieldsToClear.reduce((acc, field) => {
+    acc[field] = "";
+    return acc;
+  }, {});
+  store.setInputValue(clearValues);
 }
 
 async function validate() {
