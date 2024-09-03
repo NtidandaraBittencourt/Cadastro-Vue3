@@ -6,7 +6,7 @@ import { createPinia, setActivePinia } from 'pinia';
 describe('BaseInput', () => {
   const mockValidateField = vi.fn();
 
-    let pinia;
+  let pinia;
 
   const mountComponent = (props) => {
     return mount(BaseInput, {
@@ -71,39 +71,6 @@ describe('BaseInput', () => {
     expect(wrapper.find('.text-red-600').text()).toBe('Nome é obrigátorio');
   })
   
-//   it('Limpa os dados dos inputValues store se mudar o personType', async () => {
-//     const store = {
-//       inputValues: {
-//         personType: 'person',
-//         name: 'John Doe',
-//         cpfOrCnpj: '12345678900',
-//         dataInit: '2024-01-01',
-//         phone: '1234567890',
-//         password: 'secret'
-//       },
-//       setInputValue: vi.fn(),
-//     };
-  
-//     const wrapper = mountComponent({
-//       modelValue: 'person',
-//       id: 'personType',
-//       global: {
-//         mocks: { $store: store },
-//       },
-//     });
-  
-//     await wrapper.setProps({ modelValue: 'company' });
-
-//     expect(store.setInputValue).toHaveBeenCalledWith(expect.objectContaining({
-//       name: "",
-//       cpfOrCnpj: "",
-//       dataInit: "",
-//       phone: "",
-//       password: ""
-//     }));
-   
-//     expect(store.setInputValue).toHaveBeenCalledTimes(1);
-//   });
   it('Aplica as classes de erro no input', async () => {
     const wrapper = mountComponent({ errorMessage: 'Nome é obrigatório' });
 
